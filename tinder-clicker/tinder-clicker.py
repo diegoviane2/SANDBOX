@@ -60,5 +60,10 @@ def run_clicker(limit):
   print('FIM')
 
 def automate(loop):
-  
+  y = 0
+  while y <= loop:
     run_clicker(3)
+    y = y +1
+    time.sleep(random.randint(150,240))
+
+automate(10)
