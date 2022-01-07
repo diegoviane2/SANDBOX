@@ -38,7 +38,6 @@ def clicker(iteration,min,max):
 
 def normalized_clicker(limit):
     global h
-    webbrowser.get("C:/Program Files/Google/Chrome/Application/chrome.exe %s").open("http://tinder.com")
     while limit >= 0:
         clicker(9,0,2)
         keyboard.press(Key.f5)
@@ -51,19 +50,20 @@ def normalized_clicker(limit):
         time.sleep(random.randint(1,2))
 t = 0
 def run_clicker(limit):
-  with open('log.txt', 'a') as file:
-    file.write('INICIANDO PROGRAMA' + '\n')
-  print('INICIANDO PROGRAMA')
   normalized_clicker(limit)
-  with open('log.txt', 'a') as file:
-    file.write('FIM' + '\n')
-  print('FIM')
 
 def automate(loop):
+  print('INICIANDO PROGRAMA')
+  with open('log.txt', 'a') as file:
+    file.write('INICIANDO PROGRAMA' + '\n')
+  webbrowser.get("C:/Program Files/Google/Chrome/Application/chrome.exe %s").open("http://tinder.com")
   y = 0
   while y <= loop:
     run_clicker(3)
     y = y +1
     time.sleep(random.randint(150,240))
+  print('FIM')
+  with open('log.txt', 'a') as file:
+    file.write('FIM' + '\n')
 
 automate(10)
