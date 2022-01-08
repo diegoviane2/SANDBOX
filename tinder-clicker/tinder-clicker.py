@@ -20,7 +20,9 @@ def clicker(iteration,min,max):
    t = random.randint(n,x)
    keyboard.press(Key.right)
    keyboard.release(Key.right)
-   time.sleep(random.randint(1,2))
+   pause = random.randint(1,5)
+   print("PAUSA\t" + str(pause) + "sec.")    
+   time.sleep(pause)
    keyboard.press(Key.right)
    keyboard.release(Key.right)
    now = datetime.now()
@@ -47,23 +49,36 @@ def normalized_clicker(limit):
         with open('log.txt', 'a') as file:
           file.write('Refresh' + ',' + str(h) + ',' + date_time + '\n')  
         limit = limit - 1
-        time.sleep(random.randint(1,2))
+        pause = random.randint(1,2)
+        print("PAUSA\t" + str(pause) + "sec.")    
+        time.sleep(pause)
 t = 0
 def run_clicker(limit):
   normalized_clicker(limit)
 
 def automate(loop):
-  print('INICIANDO PROGRAMA')
-  with open('log.txt', 'a') as file:
-    file.write('INICIANDO PROGRAMA' + '\n')
-  webbrowser.get("C:/Program Files/Google/Chrome/Application/chrome.exe %s").open("http://tinder.com")
   y = 0
   while y <= loop:
     run_clicker(3)
     y = y +1
-    time.sleep(random.randint(150,240))
+    pause = random.randint(150,240)
+    print("PAUSA\t" + str(pause) + "sec.")
+    time.sleep(pause)
+
+def main(m):
+  print('INICIANDO PROGRAMA')
+  with open('log.txt', 'a') as file:
+    file.write('INICIANDO PROGRAMA' + '\n')
+  webbrowser.get("C:/Program Files/Google/Chrome/Application/chrome.exe %s").open("http://tinder.com")
+  z = 0
+  while z <= m:
+    automate(random.randint(10,30))
+    pause = random.randint(800,1200)
+    print("PAUSA\t" + str(pause) + "sec.")
+    time.sleep(pause)
+    automate(random.randint(10,30))
   print('FIM')
   with open('log.txt', 'a') as file:
     file.write('FIM' + '\n')
 
-automate(10)
+main(10)
