@@ -1,0 +1,9 @@
+Otimizar código utilizando funções para coisas repetitivas
+
+Funções:
+    logger: Cria o log dos likes em arquivo e em tela.
+        Comment: log dos likes e das pausas.
+    key_stroker: Seleciona as teclas e a aciona
+        Comment: Aciona a tecla passada por parâmetro
+    counter: Contador global de todos os passos
+        Formato: [likes]/[pausas]
