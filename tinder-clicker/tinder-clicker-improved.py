@@ -99,18 +99,7 @@ class Timer():
     log.file()
     time.sleep(tmp)
 
-
-
-
-
-
-
 def main():
-  a = Logger("TESTE", 10)
-  a.console()
-
-  b = Timer()
-  b.sleep(0,3)
-
-
+ #somecode
+ pass
 main()
