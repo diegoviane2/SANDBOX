@@ -1,10 +1,16 @@
+###
+#  Tinder Clicker Open a selected webbrowser and stroke the RIGHT keyboard key over a Tinder profile
+#  like pressing the like button to swipe right
+#  Written by Diego Viane https://github.com.br/diegoviane2
+###
+# Dependencies
 from datetime import datetime
-
 import time
 import random
 import webbrowser
 from pynput.keyboard import Key, Controller
 
+# Code
 g = 0
 h = 0
 

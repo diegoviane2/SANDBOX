@@ -1,3 +1,9 @@
+###
+#  Tinder Clicker Open a selected webbrowser and stroke the RIGHT keyboard key over a Tinder profile
+#  like pressing the like button to swipe right
+#  Written by Diego Viane https://github.com.br/diegoviane2
+###
+# Dependencies
 from datetime import datetime
 from os import link
 import time
@@ -6,9 +12,11 @@ from typing import Counter
 import webbrowser
 from pynput.keyboard import Key, Controller
 
-like_cnt = 0
-pause_cnt = 0
-refresh_cnt = 0
+# Code
+
+#like_cnt = 0
+#pause_cnt = 0
+#refresh_cnt = 0
 
 class Count:
   # Set and Return Counters
@@ -101,5 +109,9 @@ class Timer():
 
 def main():
  #somecode
- pass
+ log = Logger("INICIANDO PROGRAMA", 0)
+ log.console()
+ log.file()
+ webbrowser.get("C:/Program Files/Google/Chrome/Application/chrome.exe %s").open("http://tinder.com")
+ 
 main()
