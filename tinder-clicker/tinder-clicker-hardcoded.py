@@ -81,4 +81,4 @@ def main(m):
   with open('log.txt', 'a') as file:
     file.write('FIM' + '\n')
 
-main(10)
+main(100)
