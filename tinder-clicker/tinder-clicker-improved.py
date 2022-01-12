@@ -29,6 +29,7 @@ class Logger():
   
 
 class Key_stroker():
+  #Press and release the given key over the keyboard
   keyboard = Controller()
 
   def __init__(self, key):
@@ -37,5 +38,11 @@ class Key_stroker():
   def Press(self):
     self.keyboard.press(self.key)
     self.keyboard.release(self.key)
-    print("Tecla " + str(self.key))
+    #For debug purposes
+    #log = Logger(str(self.key), str(0))
+    #log.Console()
 
+
+
+keyer = Key_stroker(Key.right)
+keyer.Press()
