@@ -1,6 +1,6 @@
 Otimizar código utilizando funções para coisas repetitivas
 
-Funções:
+Funções/Classes:
     logger: Cria o log dos likes em arquivo e em tela.
         Comment: log dos likes e das pausas.
     key_stroker: Seleciona as teclas e a aciona

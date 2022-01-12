@@ -1,16 +1,55 @@
 from datetime import datetime
+from os import link
 import time
 import random
 from typing import Counter
 import webbrowser
 from pynput.keyboard import Key, Controller
 
-cnt = 0
+like_cnt = 0
+pause_cnt = 0
+refresh_cnt = 0
 
-def counter():
-  global cnt
-  cnt = cnt + 1
+class Count:
+  # Set and Return Counters
+  def __init__(self, like, pause, refresh):
+    self.like = like
+    self.pause = pause
+    self.refresh = refresh
 
+  def all(self):
+    # Return ALL counters as STRING
+    s_like = str(self.like)
+    s_pause = str(self.pause)
+    s_refresh = str(self.refresh)
+    all = s_like +"/"+ s_pause +"/"+ s_refresh
+
+    return all
+
+  def get_like(self):
+    # Return LIKE counter as STRING
+    s_like = str(self.like)
+    return s_like
+
+  def get_pause(self):
+    # Return PAUSE counters as STRING
+    s_pause = str(self.pause)
+    return s_pause
+
+  def get_refresh(self):
+    # Return PAUSE counters as STRING
+    s_refresh = str(self.refresh)
+    return s_refresh
+  
+  def plus_like(self):
+    self.like = self.like + 1
+  
+  def plus_pause(self):
+    self.pause = self.pause + 1
+  
+  def plus_refresh(self):
+    self.refresh = self.refresh + 1
+  
 class Logger():
   #Log the activities in the console and on a logfile with the given parameters
   now = datetime.now()
@@ -20,14 +59,16 @@ class Logger():
     self.message = message
     self.value = value
 
-  def Console(self):
+  def console(self):
+    # Print a notification on CONSOLE
     print(self.timestamp + "\t" + self.message + "\t" + str(self.value))
     
-  def File(self):
+  def file(self):
+    # Print a notification on a log FILE
+    # For now the log file is fixed
     with open('log.txt', 'a') as file:
           file.write(self.timestamp + "\t" + self.message + "\t" + str(self.value) + "\n")
   
-
 class Key_stroker():
   #Press and release the given key over the keyboard
   keyboard = Controller()
@@ -35,14 +76,10 @@ class Key_stroker():
   def __init__(self, key):
     self.key = key
     
-  def Press(self):
+  def press(self):
     self.keyboard.press(self.key)
     self.keyboard.release(self.key)
     #For debug purposes
     #log = Logger(str(self.key), str(0))
     #log.Console()
 
-
-
-keyer = Key_stroker(Key.right)
-keyer.Press()
