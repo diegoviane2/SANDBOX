@@ -52,8 +52,10 @@ class Count:
   
 class Logger():
   #Log the activities in the console and on a logfile with the given parameters
-  now = datetime.now()
-  timestamp = now.strftime("%m/%d/%Y %H:%M:%S")
+  
+  #old code
+  #now = datetime.now()
+  #timestamp = now.strftime("%m/%d/%Y %H:%M:%S")
   
   def __init__(self, message, value):
     self.message = message
@@ -61,13 +63,13 @@ class Logger():
 
   def console(self):
     # Print a notification on CONSOLE
-    print(self.timestamp + "\t" + self.message + "\t" + str(self.value))
+    print(Timer.now() + "\t" + self.message + "\t" + str(self.value))
     
   def file(self):
     # Print a notification on a log FILE
     # For now the log file is fixed
     with open('log.txt', 'a') as file:
-          file.write(self.timestamp + "\t" + self.message + "\t" + str(self.value) + "\n")
+          file.write(Timer.now() + "\t" + self.message + "\t" + str(self.value) + "\n")
   
 class Key_stroker():
   #Press and release the given key over the keyboard
@@ -83,3 +85,32 @@ class Key_stroker():
     #log = Logger(str(self.key), str(0))
     #log.Console()
 
+class Timer():
+  # Do all time calculations
+  def now():
+    now = datetime.now()
+    timestamp = now.strftime("%m/%d/%y %H:%M:%S")
+    return timestamp
+  
+  def sleep(self,min, max):
+    tmp = random.randint(min,max)
+    log = Logger("pause", tmp)
+    log.console()
+    log.file()
+    time.sleep(tmp)
+
+
+
+
+
+
+
+def main():
+  a = Logger("TESTE", 10)
+  a.console()
+
+  b = Timer()
+  b.sleep(0,3)
+
+
+main()
