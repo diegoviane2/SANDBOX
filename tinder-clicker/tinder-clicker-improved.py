@@ -14,9 +14,9 @@ from pynput.keyboard import Key, Controller
 
 # Code
 
-#like_cnt = 0
-#pause_cnt = 0
-#refresh_cnt = 0
+like_cnt = 0
+pause_cnt = 0
+refresh_cnt = 0
 
 class Count:
   # Set and Return Counters
@@ -53,7 +53,7 @@ class Count:
     self.like = self.like + 1
   
   def plus_pause(self):
-    self.pause = self.pause + 1
+    self.pause = self.pause
   
   def plus_refresh(self):
     self.refresh = self.refresh + 1
@@ -89,9 +89,6 @@ class Key_stroker():
   def press(self):
     self.keyboard.press(self.key)
     self.keyboard.release(self.key)
-    #For debug purposes
-    #log = Logger(str(self.key), str(0))
-    #log.Console()
 
 class Timer():
   # Do all time calculations
@@ -102,16 +99,42 @@ class Timer():
   
   def sleep(self,min, max):
     tmp = random.randint(min,max)
-    log = Logger("pause", tmp)
+    log = Logger("PAUSA", tmp)
     log.console()
     log.file()
     time.sleep(tmp)
 
 def main():
  #somecode
- log = Logger("INICIANDO PROGRAMA", 0)
+ 
+ count = Count(like_cnt, pause_cnt, refresh_cnt)
+
+ log = Logger("INICIANDO PROGRAMA", count.all())
  log.console()
  log.file()
- webbrowser.get("C:/Program Files/Google/Chrome/Application/chrome.exe %s").open("http://tinder.com")
+ #webbrowser.get("C:/Program Files/Google/Chrome/Application/chrome.exe %s").open("http://tinder.com")
  
+ while 1:
+  key = Key_stroker(Key.right)
+  k = 0
+  #j = random.randint(2,12)
+  while k <= 3:
+      i = 0
+      while i <= 2:
+        count.plus_like()
+        log = Logger("LIKE", count.get_like())
+        key.press()
+        log.console()
+        log.file()
+        time = Timer()
+        time.sleep(1,4)
+      count.plus_refresh()
+      log = Logger("REFRESH", count.get_refresh())
+      key = Key_stroker(Key.f5)
+      log.console()
+      log.file()
+      time = Timer()
+      time.sleep(30,60)
 main()
+
+
