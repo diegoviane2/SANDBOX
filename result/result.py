@@ -30,8 +30,14 @@ class Result():
                     elif result[4] == i:
                         print ("Match in " + str(row) + " value " + str(i) + " in line " + str(l))
              
-             
+class Ocurrencies():
+    def init(self, cnt, row, ocrr):
+        self.cnt = cnt
+        self.row = row             
+        self.ocrr = ocrr
 
+    def add():
+        pass
 
 def main():
     a = Result('result.csv', 'dataset.csv')
