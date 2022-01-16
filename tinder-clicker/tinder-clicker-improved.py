@@ -112,29 +112,36 @@ def main():
  log = Logger("INICIANDO PROGRAMA", count.all())
  log.console()
  log.file()
- #webbrowser.get("C:/Program Files/Google/Chrome/Application/chrome.exe %s").open("http://tinder.com")
- 
- while 1:
+ # webbrowser.get("C:/Program Files/Google/Chrome/Application/chrome.exe %s").open("http://tinder.com")
+ i = 0
+ s = random.randint(6,20)
+ while i < s:
   key = Key_stroker(Key.right)
   k = 0
-  #j = random.randint(2,12)
-  while k <= 3:
-      i = 0
-      while i <= 2:
-        count.plus_like()
-        log = Logger("LIKE", count.get_like())
-        key.press()
-        log.console()
-        log.file()
-        time = Timer()
-        time.sleep(1,4)
-      count.plus_refresh()
-      log = Logger("REFRESH", count.get_refresh())
-      key = Key_stroker(Key.f5)
-      log.console()
-      log.file()
-      time = Timer()
-      time.sleep(30,60)
+  j = random.randint(2,12)
+  print("LAÇO repete: " + str(j) + " vezes")
+  while k < j:
+    count.plus_like()
+    log = Logger("LIKE", count.get_like())
+    key.press()
+    log.console()
+    log.file()
+    time = Timer()
+    time.sleep(1,4)
+    k = k + 1
+
+    count.plus_refresh()
+    log = Logger("REFRESH", count.get_refresh())
+    key = Key_stroker(Key.f5)
+    log.console()
+    log.file()
+    time = Timer()
+    time.sleep(30,60)
+  i = i + 1
+ log = Logger("FINALIZANDO PROGRAMA", count.all())
+ log.console()
+ log.file()
+
 main()
 
 
