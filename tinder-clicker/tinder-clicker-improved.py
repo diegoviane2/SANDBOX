@@ -141,7 +141,7 @@ def main():
  log = Logger("FINALIZANDO PROGRAMA", count.all())
  log.console()
  log.file()
-
+ 
 main()
 
 
