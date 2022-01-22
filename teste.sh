@@ -18,7 +18,7 @@ echo ${res[@]}
 
 for a in $(seq ${#res[@]});
 do
-total_pods=`echo $total_pods + ${res[@]} | bc`
+total_pods=`echo $total_pods + ${res[a]} | bc`
 done
 
 echo $total_pods
