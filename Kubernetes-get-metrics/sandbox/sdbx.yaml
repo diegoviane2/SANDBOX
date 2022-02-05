@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sdbx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sdbx
+  template:
+    metadata:
+      labels:
+        app: sdbx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80

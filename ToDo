@@ -1,0 +1,7 @@
+
+kubernetes-get-metrics
+    * Percorre os nomes em uma lista
+    * Para cada nome na lista:
+        + Matar o pod
+        + Iniciar o pod
+        + Quando o resultado do "--watch-events --watch" for "RUNNING" Capturar a informação de tempo.
