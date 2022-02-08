@@ -8,7 +8,7 @@ resource=$3
 replicas=$4
 
 #echo "[ TASK: SCALE PODS ]"
-echo "  [ Initializing task - Scale pods ]"
+echo "  [ Initializing task - Scale >> $resource << pods ]"
 # Get pods status
 last_active=`kubectl -n $namespace get $kind $resource --no-headers | awk '{print $2}' | cut -d "/" -f 1 | tr -d '\n'`
 
@@ -18,5 +18,5 @@ result=`kubectl -n $namespace scale $kind $resource --replicas=$replicas`
 
 echo "  [ $result ... `kubectl -n $namespace get $kind $resource --no-headers | awk '{print $2}' | cut -d "/" -f 1 | tr -d '\n'` pod(s) running ... ] [ OK ]"
 
-echo "  [ Scale pods ... ] [DONE]"
-#echo "[ TASK: SCALE PODS ] [ COMPLETED! ]"
+echo "  [ Scale >> $resource << pods ... ] [DONE]"
+#echo "[ TASK: SCALE PODS ] [ COMPLETED ]"
