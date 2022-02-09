@@ -23,5 +23,14 @@ nestedData = """{
 watchlist = json.loads(nestedData)
 
 # Search 'brand' for women
-if 'brand' in watchlist['watch']['kid']:
- print(watchlist['watch']['kid']['brand'])
+#if 'brand' in watchlist['watch']['kid']:
+
+identifier = watchlist['DBInstances'][0]['DBInstanceIdentifier']
+instance_class = watchlist['DBInstances'][0]['DBInstanceClass']
+instance_arn = watchlist['DBInstances'][0]['DBInstanceArn']
+            
+
+
+print("Instance Name: " + identifier + " ...  Instance Class: " + instance_class)
+print(instance_arn)
+
